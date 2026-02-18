@@ -13,7 +13,6 @@
   } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
   //  Replace With YOUR Firebase Config
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyBKrkIr2U9YtNOpiUDixRZe2BdG_2Mry10",
     authDomain: "myhome1-5ef8a.firebaseapp.com",
@@ -40,13 +39,11 @@
   const gpioButtons = {
     gpio1: document.getElementById("gpio1Btn"),
     gpio2: document.getElementById("gpio2Btn"),
-    gpio3: document.getElementById("gpio3Btn")
   };
 
   const gpioLabels = {
     gpio1: document.getElementById("gpio1Status"),
     gpio2: document.getElementById("gpio2Status"),
-    gpio3: document.getElementById("gpio3Status")
   };
 
   // Login
@@ -83,7 +80,7 @@
 
   // Listen to DB
   function startListeners() {
-    ["gpio1", "gpio2", "gpio3"].forEach((key) => {
+    ["gpio1", "gpio2"].forEach((key) => {
       onValue(ref(db, "/" + key), (snapshot) => {
         let value = snapshot.val() ? 1 : 0;
         updateUI(key, value);
